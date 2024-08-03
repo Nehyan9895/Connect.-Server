@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const corsOption = {
-    origin: 'http://localhost:4200',
+    origin: ['http://localhost:4200', 'https://connect-client2.vercel.app'],
     optionsSuccessStatus: 200,
 };
 
