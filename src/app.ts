@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const corsOption = {
-    origin: ['http://localhost:4200', 'https://connect-client2.vercel.app'],
+    origin: 'https://connect-client-omega.vercel.app/',
     optionsSuccessStatus: 200,
 };
 
@@ -40,3 +40,4 @@ server.listen(PORT, () => {
 app.get('/', (req, res) => {
     res.send('Welcome to the backend server!');
 });
+// 'http://localhost:4200', 
