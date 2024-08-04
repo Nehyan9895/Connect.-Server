@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import http from 'http';
-import * as cors from 'cors';
+import cors from 'cors';
 import connectDB from './config/db';
 import userRoutes from './routes/userRoutes';
 import adminRoutes from './routes/adminRoutes';
@@ -32,7 +32,7 @@ const allowedOrigins = [
   };
   
   
-  
+  app.use(cors(corsOptions));
 
 app.use('/admin', adminRoutes);
 app.use('/candidate', userRoutes);
