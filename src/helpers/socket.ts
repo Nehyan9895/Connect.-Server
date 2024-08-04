@@ -11,7 +11,7 @@ let io: Server
 export const setupSocket = (server: HttpServer) => {
     io = new Server(server, {
         cors: {
-            origin: ['http://localhost:4200','https://connect-client-q6urojz23-nehyan9895s-projects.vercel.app'],
+            origin: ['https://connect-client-omega.vercel.app/'],
             methods: ["GET", "POST"]
         }
     });
@@ -88,7 +88,7 @@ export const setupSocket = (server: HttpServer) => {
         });
 
         socket.on('startInterview', async ({  job,candidateId, roomID }) => {
-            const notificationLink = `localhost:4200/video-call?roomID=${roomID}`;
+            const notificationLink = `https://connect.clothingcue.store/video-call?roomID=${roomID}`;
         
             try {
                 // Create and save notification
