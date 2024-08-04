@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import http from 'http';
-import cors from 'cors';
+import * as cors from 'cors';
 import connectDB from './config/db';
 import userRoutes from './routes/userRoutes';
 import adminRoutes from './routes/adminRoutes';
@@ -15,12 +15,24 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const corsOption = {
-    origin: '*',
+const allowedOrigins = [
+    'http://localhost:4200',
+    'https://connect-client-omega.vercel.app', // Add production frontend URL
+  ];
+  
+  const corsOptions: cors.CorsOptions = {
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOption));
+  };
+  
+  
+  
 
 app.use('/admin', adminRoutes);
 app.use('/candidate', userRoutes);
