@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const corsOption = {
-    origin: 'https://connect-client-omega.vercel.app/',
+    origin: '*',
     optionsSuccessStatus: 200,
 };
 
