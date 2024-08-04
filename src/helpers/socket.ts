@@ -11,7 +11,7 @@ let io: Server
 export const setupSocket = (server: HttpServer) => {
     io = new Server(server, {
         cors: {
-            origin: 'http://localhost:4200',
+            origin: ['http://localhost:4200','https://connect-client-q6urojz23-nehyan9895s-projects.vercel.app'],
             methods: ["GET", "POST"]
         }
     });
