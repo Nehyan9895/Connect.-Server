@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
     'http://localhost:4200',
-    'https://connect-client-omega.vercel.app', // Add production frontend URL
+    'https://connect-client-q6urojz23-nehyan9895s-projects.vercel.app', // Add production frontend URL
   ];
   
   const corsOptions: cors.CorsOptions = {
