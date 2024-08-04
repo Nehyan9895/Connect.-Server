@@ -15,23 +15,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const allowedOrigins = [
-    'http://localhost:4200',
-    'https://connect-client-q6urojz23-nehyan9895s-projects.vercel.app', // Add production frontend URL
-  ];
-  
-  const corsOptions:cors.CorsOptions = {
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type,Authorization',
-    optionsSuccessStatus: 200,
+const corsOptions = {
+    origin: 'https://connect-client-q6urojz23-nehyan9895s-projects.vercel.app',
+    methods: 'GET, POST, OPTIONS',
+    allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
   };
+  
   
   // Use CORS middleware
   
