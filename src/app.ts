@@ -20,7 +20,7 @@ const allowedOrigins = [
     'https://connect-client-q6urojz23-nehyan9895s-projects.vercel.app', // Add production frontend URL
   ];
   
-  const corsOptions: cors.CorsOptions = {
+  const corsOptions:cors.CorsOptions = {
     origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
@@ -28,8 +28,13 @@ const allowedOrigins = [
         callback(new Error('Not allowed by CORS'));
       }
     },
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
     optionsSuccessStatus: 200,
   };
+  
+  // Use CORS middleware
+  
   
   
   app.use(cors(corsOptions));
