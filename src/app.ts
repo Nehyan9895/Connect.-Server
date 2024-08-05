@@ -46,4 +46,3 @@ server.listen(PORT, () => {
 app.get('/', (req, res) => {
     res.send('Welcome to the backend server!');
 });
-// 'http://localhost:4200', 
